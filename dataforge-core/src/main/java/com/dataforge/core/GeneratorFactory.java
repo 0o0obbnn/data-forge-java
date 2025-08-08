@@ -41,6 +41,9 @@ import com.dataforge.generators.identifiers.EnhancedUuidGenerator;
 import com.dataforge.generators.identifiers.CustomIdGenerator;
 import com.dataforge.generators.identifiers.LicensePlateGenerator;
 import com.dataforge.generators.identifiers.EnhancedBankCardGenerator;
+import com.dataforge.generators.identifiers.OrganizationCodeGenerator;
+import com.dataforge.generators.identifiers.LeiCodeGenerator;
+import com.dataforge.generators.identifiers.ProductCodeGenerator;
 import com.dataforge.generators.location.AddressGenerator;
 import com.dataforge.generators.network.NetworkDeviceGenerator;
 import com.dataforge.generators.advanced.DataRelationshipGenerator;
@@ -51,6 +54,10 @@ import com.dataforge.generators.structured.XmlDocumentGenerator;
 import com.dataforge.generators.structured.YamlDataGenerator;
 import com.dataforge.generators.enums.HttpStatusCodeGenerator;
 import com.dataforge.generators.enums.BusinessStatusCodeGenerator;
+import com.dataforge.generators.communication.VerificationCodeGenerator;
+import com.dataforge.generators.communication.LandlinePhoneGenerator;
+import com.dataforge.generators.communication.FilePathGenerator;
+import com.dataforge.generators.communication.MimeTypeGenerator;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -85,6 +92,13 @@ public class GeneratorFactory {
         register("bankcard", BankCardNumberGenerator.class);
         register("uscc", UnifiedSocialCreditCodeGenerator.class);
         register("company", CompanyGenerator.class);
+        register("occupation", OccupationGenerator.class);
+        register("education", EducationLevelGenerator.class);
+        register("marital_status", MaritalStatusGenerator.class);
+        register("blood_type", BloodTypeGenerator.class);
+        register("zodiac_sign", ZodiacSignGenerator.class);
+        register("ethnicity", EthnicityGenerator.class);
+        register("religion", ReligionGenerator.class);
         
         // Register numeric generators
         register("integer", IntegerGenerator.class);
@@ -142,6 +156,9 @@ public class GeneratorFactory {
         register("license_plate", LicensePlateGenerator.class);
         register("enhanced_bank_card", EnhancedBankCardGenerator.class);
         register("address", AddressGenerator.class);
+        register("org_code", OrganizationCodeGenerator.class);
+        register("lei", LeiCodeGenerator.class);
+        register("product_code", ProductCodeGenerator.class);
         
         // Register network device generators
         register("network_device", NetworkDeviceGenerator.class);
@@ -160,6 +177,10 @@ public class GeneratorFactory {
         // Register enum generators
         register("http_status_code", HttpStatusCodeGenerator.class);
         register("business_status_code", BusinessStatusCodeGenerator.class);
+        register("verification_code", VerificationCodeGenerator.class);
+        register("landline_phone", LandlinePhoneGenerator.class);
+        register("file_path", FilePathGenerator.class);
+        register("mime_type", MimeTypeGenerator.class);
     }
     
     /**

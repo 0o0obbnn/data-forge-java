@@ -120,11 +120,13 @@ public class ImageDimensionsGeneratorTest {
     @Test
     public void testGenerateWithDifferentAspectRatioValues() {
         ImageDimensionsGenerator generator = new ImageDimensionsGenerator();
-        GenerationContext context = new GenerationContext(1);
+        GenerationContext context = new GenerationContext(1, 12345L); // Add a fixed seed
         context.setParameter("maintain_aspect_ratio", true);
         
         // Test 16:9 aspect ratio
         context.setParameter("aspect_ratio", "1.777");
+        context.setParameter("min_width", 1280);
+        context.setParameter("max_width", 1280);
         String result1 = generator.generate(context);
         String[] parts1 = result1.split("x");
         int width1 = Integer.parseInt(parts1[0]);
@@ -134,6 +136,8 @@ public class ImageDimensionsGeneratorTest {
         
         // Test 4:3 aspect ratio
         context.setParameter("aspect_ratio", "1.333");
+        context.setParameter("min_width", 800);
+        context.setParameter("max_width", 800);
         String result2 = generator.generate(context);
         String[] parts2 = result2.split("x");
         int width2 = Integer.parseInt(parts2[0]);
