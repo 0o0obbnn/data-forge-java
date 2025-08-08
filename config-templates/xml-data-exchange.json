@@ -1,0 +1,70 @@
+{
+  "name": "XML数据交换格式演示",
+  "description": "生成XML格式的结构化数据，用于系统间数据交换",
+  "outputFormat": "xml",
+  "outputFile": "data_exchange.xml",
+  "prettyPrint": true,
+  "globalParameters": {
+    "locale": "zh_CN",
+    "xml_root_element": "enterprises",
+    "xml_record_element": "enterprise"
+  },
+  "tasks": [
+    {
+      "name": "enterprise_name",
+      "type": "company",
+      "count": 20,
+      "parameters": {
+        "industry": "mixed"
+      },
+      "nestedTasks": [
+        {
+          "name": "credit_code",
+          "type": "uscc",
+          "count": 1
+        },
+        {
+          "name": "legal_representative",
+          "type": "name",
+          "count": 1
+        },
+        {
+          "name": "business_phone",
+          "type": "phone",
+          "count": 1,
+          "parameters": {
+            "type": "landline"
+          }
+        },
+        {
+          "name": "contact_email",
+          "type": "email",
+          "count": 1,
+          "parameters": {
+            "domain": "company"
+          }
+        },
+        {
+          "name": "establishment_date",
+          "type": "date",
+          "count": 1,
+          "parameters": {
+            "start_date": "2010-01-01",
+            "end_date": "2023-12-31"
+          }
+        },
+        {
+          "name": "registered_capital",
+          "type": "currency",
+          "count": 1,
+          "parameters": {
+            "currency_code": "CNY",
+            "min_value": 100000,
+            "max_value": 50000000,
+            "precision": 0
+          }
+        }
+      ]
+    }
+  ]
+}

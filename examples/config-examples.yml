@@ -1,0 +1,221 @@
+# DataForge 配置示例文件
+
+# 全局生成配置
+generation:
+  defaultCount: 1000           # 默认生成数量
+  batchSize: 100              # 批处理大小
+  threadCount: 4              # 并发线程数
+  outputFormat: "json"        # 输出格式: json, csv, xml
+  encoding: "UTF-8"           # 文件编码
+
+# 性能优化配置
+performance:
+  memoryThreshold: 67108864   # 内存阈值 (64MB)
+  enableGC: true              # 启用垃圾回收提示
+  maxMemoryUsage: 0.8         # 最大内存使用比例
+  
+# 日志配置
+logging:
+  level: "INFO"               # 日志级别: DEBUG, INFO, WARN, ERROR
+  file: "dataforge.log"       # 日志文件
+  console: true               # 控制台输出
+
+# 数据生成任务定义
+tasks:
+  # 基础用户信息
+  basic_users:
+    count: 500
+    generator: "json"
+    template:
+      id: "uuid"
+      name: "random_name"
+      email: "random_email"
+      age: "random_int"
+      phone: "random_phone"
+    parameters:
+      name:
+        culture: "chinese"
+      age:
+        min: 18
+        max: 65
+      phone:
+        format: "mobile"
+
+  # 完整用户档案
+  full_profiles:
+    count: 200
+    generator: "json"
+    template:
+      user_id: "uuid"
+      profile:
+        name: "random_name"
+        age: "random_int"
+        gender: "random_gender"
+        contact:
+          email: "random_email"
+          phone: "random_phone"
+          address: "random_address"
+        identity:
+          id_card: "idcard"
+          bank_card: "bankcard"
+    parameters:
+      name:
+        culture: "mixed"
+      age:
+        min: 18
+        max: 80
+      address:
+        country: "china"
+        include_details: true
+
+  # 产品数据
+  products:
+    count: 1000
+    generator: "csv"
+    template:
+      - "product_id"
+      - "product_name"
+      - "category"
+      - "price"
+      - "stock"
+      - "description"
+    parameters:
+      product_name:
+        type: "tech_product"
+      category:
+        categories: ["手机", "电脑", "平板", "耳机", "智能手表"]
+      price:
+        min: 99.99
+        max: 9999.99
+        currency: "CNY"
+      stock:
+        min: 0
+        max: 1000
+
+  # 订单数据
+  orders:
+    count: 300
+    generator: "json"
+    template:
+      order_id: "order_id"
+      user_id: "uuid"
+      items: "order_items"
+      total_amount: "currency"
+      status: "random_status"
+      created_at: "timestamp"
+    parameters:
+      order_id:
+        prefix: "ORD"
+        date_format: "yyyyMMdd"
+      items:
+        min_items: 1
+        max_items: 5
+      status:
+        statuses: ["pending", "processing", "shipped", "delivered", "cancelled"]
+
+  # 测试数据 - 边界值
+  boundary_test:
+    count: 50
+    generator: "json"
+    template:
+      empty_string: "empty_string"
+      null_value: "null_value"
+      max_length: "max_length_string"
+      min_length: "min_length_string"
+      zero_value: "zero_integer"
+      max_int: "max_integer"
+      min_int: "min_integer"
+    parameters:
+      max_length:
+        length: 1000
+      min_length:
+        length: 1
+      max_int:
+        value: 2147483647
+      min_int:
+        value: -2147483648
+
+  # 安全测试数据
+  security_test:
+    count: 100
+    generator: "json"
+    template:
+      test_case: "random_string"
+      sql_injection: "sqlinjection"
+      xss_attack: "xss"
+      path_traversal: "pathtraversal"
+      command_injection: "commandinjection"
+    parameters:
+      test_case:
+        prefix: "TEST_"
+
+  # 时间序列数据
+  time_series:
+    count: 8760  # 一年的小时数
+    generator: "csv"
+    template:
+      - "timestamp"
+      - "temperature"
+      - "humidity"
+      - "pressure"
+      - "wind_speed"
+    parameters:
+      timestamp:
+        start: "2023-01-01T00:00:00Z"
+        end: "2023-12-31T23:59:59Z"
+        interval: "1h"
+      temperature:
+        min: -20.0
+        max: 45.0
+        unit: "celsius"
+      humidity:
+        min: 0.0
+        max: 100.0
+        unit: "percent"
+
+  # 媒体文件元数据
+  media_metadata:
+    count: 200
+    generator: "json"
+    template:
+      file_id: "uuid"
+      file_name: "random_filename"
+      extension: "file_extension"
+      size: "file_size"
+      dimensions: "image_dimensions"
+      mime_type: "mime_type"
+      created_at: "timestamp"
+    parameters:
+      file_name:
+        type: "image"
+      extension:
+        category: "image"
+        include_dangerous: false
+      size:
+        min: "1KB"
+        max: "50MB"
+      dimensions:
+        min_width: 100
+        max_width: 4000
+        min_height: 100
+        max_height: 4000
+
+# 数据库连接配置 (可选)
+database:
+  enabled: false
+  type: "mysql"
+  host: "localhost"
+  port: 3306
+  database: "test_data"
+  username: "dataforge"
+  password: "password"
+  batch_size: 1000
+
+# 输出配置
+output:
+  directory: "./generated_data"
+  file_prefix: "data_"
+  file_suffix: ""
+  compress: false
+  split_files: true
+  max_file_size: "100MB"

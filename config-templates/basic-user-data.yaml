@@ -1,0 +1,36 @@
+# DataForge Basic User Data Configuration
+name: "基础用户数据生成"
+description: "生成包含基本用户信息的测试数据"
+outputFormat: "json"
+outputFile: "users.json"
+prettyPrint: true
+
+# 全局参数
+globalParameters:
+  locale: "zh_CN"
+  seed: 12345
+
+# 数据生成任务
+tasks:
+  - name: "username"
+    type: "name"
+    count: 100
+    parameters:
+      gender: "random"
+    
+    # 嵌套任务 - 关联数据
+    nestedTasks:
+      - name: "email"
+        type: "email"
+        count: 1
+        
+      - name: "phone"
+        type: "phone"
+        count: 1
+        
+      - name: "age"
+        type: "age"
+        count: 1
+        parameters:
+          min: 18
+          max: 65

@@ -1,0 +1,60 @@
+# 媒体文件扩展名
+# Media File Extensions
+
+# 音频格式
+.mp3
+.wav
+.flac
+.aac
+.ogg
+.wma
+.m4a
+.ape
+.opus
+.mpc
+.wv
+.tta
+.tak
+.alac
+.dsf
+.dff
+.dsd
+
+# 视频格式
+.mp4
+.avi
+.mkv
+.mov
+.wmv
+.flv
+.webm
+.mpg
+.mpeg
+.3gp
+.3g2
+.ts
+.m2ts
+.mts
+.divx
+.xvid
+.h264
+.h265
+.vp8
+.vp9
+.m4v
+.f4v
+
+# 流媒体格式
+.m3u8
+.dash
+.mpd
+.smil
+
+# 字幕格式
+.srt
+.ass
+.ssa
+.vtt
+.sub
+.idx
+.smi

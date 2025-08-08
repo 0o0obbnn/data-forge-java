@@ -1,0 +1,14 @@
+[
+  {
+    "name": "James Miller",
+    "xss": "<body onload=alert(1)>"
+  },
+  {
+    "name": "Elizabeth Davis",
+    "xss": "<script>alert('XSS')</script>"
+  },
+  {
+    "name": "王伟",
+    "xss": "';eval('alert(1)');//"
+  }
+]

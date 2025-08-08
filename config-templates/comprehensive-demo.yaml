@@ -1,0 +1,139 @@
+# DataForge Comprehensive Configuration Template
+name: "DataForge 综合功能演示"
+description: "展示DataForge所有核心功能的综合配置模板"
+outputFormat: "json"
+outputFile: "comprehensive_demo.json"  
+prettyPrint: true
+
+# 全局参数配置
+globalParameters:
+  locale: "zh_CN"
+  timezone: "Asia/Shanghai"
+  seed: 42
+  batch_size: 100
+  enable_validation: true
+  output_encoding: "UTF-8"
+
+# 数据生成任务配置
+tasks:
+  # 基础信息类数据
+  - name: "user_profile"
+    type: "name"
+    count: 100
+    parameters:
+      gender: "random"
+      generation: "80s"
+    nestedTasks:
+      - name: "id_card"
+        type: "idcard"
+        count: 1
+      - name: "phone_number"
+        type: "phone"
+        count: 1
+      - name: "email_address"
+        type: "email"
+        count: 1
+      - name: "age"
+        type: "age"
+        count: 1
+        parameters:
+          min: 20
+          max: 60
+
+  # 企业数据
+  - name: "company_info"
+    type: "company"
+    count: 50
+    parameters:
+      industry: "technology"
+      size: "medium"
+    nestedTasks:
+      - name: "credit_code"
+        type: "uscc"
+        count: 1
+      - name: "bank_account"
+        type: "bankcard"
+        count: 1
+
+  # 网络设备类数据
+  - name: "network_device"
+    type: "ip"
+    count: 200
+    parameters:
+      version: "ipv4"
+      type: "private"
+    nestedTasks:
+      - name: "mac_address"
+        type: "mac"
+        count: 1
+      - name: "port_number"
+        type: "port"
+        count: 1
+        parameters:
+          range: "dynamic"
+
+  # 时间数据
+  - name: "event_timestamp"
+    type: "timestamp"
+    count: 1000
+    parameters:
+      start_date: "2023-01-01"
+      end_date: "2024-12-31"
+      format: "iso8601"
+
+  # 数值计量类数据
+  - name: "financial_data"
+    type: "currency"
+    count: 500
+    parameters:
+      currency_code: "CNY"
+      min_value: 1000.0
+      max_value: 100000.0
+      precision: 2
+
+  # 安全测试数据
+  - name: "security_payloads"
+    type: "sqlinjection"
+    count: 20
+    parameters:
+      target_db: "mysql"
+      complexity: "advanced"
+
+  # 特殊场景数据
+  - name: "boundary_test_data"
+    type: "boundary"
+    count: 50
+    parameters:
+      data_type: "string"
+      boundary_type: "length"
+      
+  - name: "null_empty_data"
+    type: "emptynull"
+    count: 30
+    parameters:
+      null_probability: 0.3
+      empty_probability: 0.4
+
+  # 媒体文件数据
+  - name: "file_metadata"
+    type: "file_extension"
+    count: 100
+    parameters:
+      file_types: ["image", "document", "video"]
+    nestedTasks:
+      - name: "file_size"
+        type: "file_size"
+        count: 1
+        parameters:
+          unit: "MB"
+          min_size: 1
+          max_size: 100
+
+  # 位置数据
+  - name: "location_info"
+    type: "enhanced_location"
+    count: 200
+    parameters:
+      country: "CN"
+      include_coordinates: true
+      precision: "city"

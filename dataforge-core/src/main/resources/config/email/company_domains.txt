@@ -1,0 +1,34 @@
+# 企业邮箱域名
+# Company Email Domains
+
+microsoft.com
+google.com
+apple.com
+amazon.com
+facebook.com
+netflix.com
+twitter.com
+linkedin.com
+github.com
+stackoverflow.com
+adobe.com
+oracle.com
+ibm.com
+intel.com
+dell.com
+hp.com
+cisco.com
+vmware.com
+salesforce.com
+shopify.com
+spotify.com
+uber.com
+airbnb.com
+tesla.com
+spacex.com
+paypal.com
+stripe.com
+dropbox.com
+slack.com
+discord.com
+zoom.us

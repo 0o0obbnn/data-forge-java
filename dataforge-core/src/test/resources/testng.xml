@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="DataForge Test Suite">
+    <test name="Core Tests">
+        <packages>
+            <package name="com.dataforge.*"/>
+        </packages>
+    </test>
+</suite>

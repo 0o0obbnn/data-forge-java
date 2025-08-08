@@ -1,0 +1,60 @@
+name: "User Data Generation"
+description: "Generate sample user data for testing purposes"
+output_format: "json"
+output_file: "users.json"
+pretty_print: true
+
+global_parameters:
+  locale: "zh_CN"
+  timezone: "Asia/Shanghai"
+
+tasks:
+  - name: "user"
+    type: "name"
+    count: 50
+    parameters:
+      gender: "male"
+      locale: "zh_CN"
+    nested_tasks:
+      - name: "email"
+        type: "email"
+        count: 1
+        parameters:
+          domain: "gmail.com"
+      - name: "phone"
+        type: "phone"
+        count: 1
+        parameters:
+          valid: true
+      - name: "age"
+        type: "age"
+        count: 1
+        parameters:
+          min: 18
+          max: 65
+      - name: "idcard"
+        type: "idcard"
+        count: 1
+        parameters:
+          region: "110101"
+          gender: "male"
+
+  - name: "company"
+    type: "uscc"
+    count: 20
+    parameters:
+      region: "310100"
+
+  - name: "bank_account"
+    type: "bankcard"
+    count: 30
+    parameters:
+      type: "debit"
+      issuer: "ICBC"
+
+  - name: "website"
+    type: "url"
+    count: 25
+    parameters:
+      protocol: "https"
+      include_params: true

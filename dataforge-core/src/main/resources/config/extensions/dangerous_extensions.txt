@@ -1,0 +1,73 @@
+# 危险文件扩展名列表
+# Dangerous File Extensions
+
+# Web脚本文件
+.php
+.asp
+.aspx
+.jsp
+.js
+.vbs
+.cfm
+.cgi
+.pl
+.py
+.rb
+.sh
+.bat
+.cmd
+
+# 可执行文件
+.exe
+.scr
+.com
+.pif
+.bat
+.cmd
+.vbs
+.js
+.jar
+.app
+.apk
+.deb
+.rpm
+.dmg
+.pkg
+.msi
+
+# 宏和脚本
+.macro
+.mcr
+.vba
+.vbe
+.wsf
+.wsc
+.hta
+
+# 系统文件
+.dll
+.sys
+.drv
+.ocx
+.vxd
+
+# 压缩包中的危险文件
+.zip
+.rar
+.7z
+.tar
+.gz
+.bz2
+
+# Office宏文件
+.docm
+.xlsm
+.pptm
+
+# 其他潜在危险
+.lnk
+.url
+.mht
+.mhtml
+.inf
+.reg

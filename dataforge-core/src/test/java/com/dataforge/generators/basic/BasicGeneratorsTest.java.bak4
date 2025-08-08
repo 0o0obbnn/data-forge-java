@@ -1,0 +1,84 @@
+package com.dataforge.generators.basic;
+
+import com.dataforge.core.GenerationContext;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class BasicGeneratorsTest {
+    
+    private GenerationContext context;
+    
+    @BeforeEach
+    void setUp() {
+        context = new GenerationContext(1);
+    }
+    
+    @Test
+    void testNameGenerator() {
+        NameGenerator generator = new NameGenerator();
+        String name = generator.generate(context);
+        assertNotNull(name);
+        assertFalse(name.isEmpty());
+        assertTrue(name.contains(" ") || name.length() > 1); // Either English name with space or Chinese name
+    }
+    
+    @Test
+    void testPhoneNumberGenerator() {
+        PhoneNumberGenerator generator = new PhoneNumberGenerator();
+        String phone = generator.generate(context);
+        assertNotNull(phone);
+        assertEquals(11, phone.length());
+        assertTrue(phone.startsWith("1"));
+    }
+    
+    @Test
+    void testEmailGenerator() {
+        EmailGenerator generator = new EmailGenerator();
+        String email = generator.generate(context);
+        assertNotNull(email);
+        assertTrue(email.contains("@"));
+        assertTrue(email.lastIndexOf(".") > email.indexOf("@"));
+    }
+    
+    @Test
+    void testAgeGenerator() {
+        AgeGenerator generator = new AgeGenerator(18, 65);
+        Integer age = generator.generate(context);
+        assertNotNull(age);
+        assertTrue(age >= 18 && age <= 65);
+    }
+    
+    @Test
+    void testGenderGenerator() {
+        GenderGenerator generator = new GenderGenerator();
+        String gender = generator.generate(context);
+        assertNotNull(gender);
+        assertTrue(gender.equals("Male") || gender.equals("Female") || gender.equals("Other"));
+    }
+    
+    @Test
+    void testPasswordGenerator() {
+        PasswordGenerator generator = new PasswordGenerator(8, 16, PasswordGenerator.Complexity.HIGH);
+        String password = generator.generate(context);
+        assertNotNull(password);
+        assertTrue(password.length() >= 8 && password.length() <= 16);
+    }
+    
+    @Test
+    void testAccountNameGenerator() {
+        AccountNameGenerator generator = new AccountNameGenerator(6, 12, true);
+        Set<String> generatedNames = new HashSet<>();
+        
+        // Generate 100 account names and check for uniqueness
+        for (int i = 0; i < 100; i++) {
+            String name = generator.generate(context);
+            assertNotNull(name);
+            assertTrue(name.length() >= 6 && name.length() <= 12);
+            assertTrue(generatedNames.add(name), "Duplicate name generated: " + name);
+        }
+    }
+}

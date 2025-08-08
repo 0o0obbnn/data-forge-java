@@ -1,0 +1,51 @@
+name: "SQL数据库导入演示"
+description: "生成SQL INSERT语句用于数据库数据导入"
+outputFormat: "sql"
+outputFile: "database_import.sql"
+prettyPrint: true
+
+# 全局参数
+globalParameters:
+  locale: "zh_CN"
+  seed: 54321
+  # SQL特定参数
+  table_name: "user_profiles"
+  database_type: "mysql"
+  batch_size: 500
+
+# 数据生成任务
+tasks:
+  - name: "user_id"
+    type: "uuid"
+    count: 1000
+    
+    nestedTasks:
+      - name: "full_name"
+        type: "name"
+        count: 1
+        
+      - name: "email_address"
+        type: "email"
+        count: 1
+        
+      - name: "mobile_phone"
+        type: "phone"
+        count: 1
+        
+      - name: "id_card_number"
+        type: "idcard"
+        count: 1
+        
+      - name: "registration_date"
+        type: "timestamp"
+        count: 1
+        parameters:
+          start_date: "2023-01-01"
+          end_date: "2024-12-31"
+          
+      - name: "user_age"
+        type: "age"
+        count: 1
+        parameters:
+          min: 18
+          max: 65

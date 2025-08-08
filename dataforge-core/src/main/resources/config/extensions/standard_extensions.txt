@@ -1,0 +1,156 @@
+# 标准文件扩展名列表
+# Standard File Extensions
+
+# 图片格式
+.jpg
+.jpeg
+.png
+.gif
+.bmp
+.tiff
+.tif
+.webp
+.svg
+.ico
+.raw
+.heic
+.heif
+.avif
+
+# 文档格式
+.pdf
+.doc
+.docx
+.xls
+.xlsx
+.ppt
+.pptx
+.txt
+.rtf
+.odt
+.ods
+.odp
+.csv
+.tsv
+
+# 网页相关
+.html
+.htm
+.css
+.js
+.jsx
+.ts
+.tsx
+.vue
+.json
+.xml
+.yaml
+.yml
+
+# 压缩格式
+.zip
+.rar
+.7z
+.tar
+.gz
+.bz2
+.xz
+.lz
+.lz4
+.zstd
+
+# 音频格式
+.mp3
+.wav
+.flac
+.aac
+.ogg
+.wma
+.m4a
+.ape
+.opus
+
+# 视频格式
+.mp4
+.avi
+.mkv
+.mov
+.wmv
+.flv
+.webm
+.mpg
+.mpeg
+.3gp
+.ts
+.m2ts
+
+# 可执行文件
+.exe
+.msi
+.dmg
+.deb
+.rpm
+.app
+.apk
+.ipa
+
+# 源码文件
+.c
+.cpp
+.h
+.hpp
+.java
+.py
+.rb
+.php
+.go
+.rs
+.swift
+.kt
+.dart
+
+# 数据库文件
+.sql
+.db
+.sqlite
+.mdb
+.accdb
+
+# 图像设计
+.psd
+.ai
+.eps
+.indd
+.sketch
+.fig
+
+# 电子书
+.epub
+.mobi
+.azw
+.azw3
+.pdf
+.txt
+
+# 系统文件
+.dll
+.sys
+.drv
+.ini
+.cfg
+.conf
+.reg
+
+# 日志文件
+.log
+.out
+.err
+.debug
+.trace
+
+# 备份文件
+.bak
+.tmp
+.old
+.orig
+.backup

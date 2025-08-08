@@ -1,0 +1,43 @@
+# DataForge Security Testing Data Configuration
+name: "安全测试数据生成"
+description: "生成用于安全测试的各种攻击载荷和边界数据"
+outputFormat: "json"
+outputFile: "security_test_data.json"
+prettyPrint: true
+
+globalParameters:
+  test_environment: "staging"
+  severity_level: "medium"
+
+tasks:
+  # SQL注入测试载荷  
+  - name: "sql_payloads"
+    type: "sqlinjection"
+    count: 20
+    parameters:
+      complexity: "advanced"
+      target_db: "mysql"
+      
+  # XSS攻击脚本
+  - name: "xss_scripts"
+    type: "xss"
+    count: 15
+    parameters:
+      payload_type: "reflected"
+      browser_target: "chrome"
+      
+  # 路径穿越攻击
+  - name: "path_traversal"
+    type: "pathtraversal"
+    count: 10
+    parameters:
+      os_target: "linux"
+      depth: 5
+      
+  # 边界值测试数据
+  - name: "boundary_values"
+    type: "boundary"
+    count: 25
+    parameters:
+      data_type: "integer"
+      range: "int32"

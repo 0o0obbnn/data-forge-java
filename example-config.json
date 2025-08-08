@@ -1,0 +1,70 @@
+{
+  "name": "Product Data Generation",
+  "description": "Generate e-commerce product data for testing",
+  "output_format": "csv",
+  "output_file": "products.csv",
+  "pretty_print": true,
+  "global_parameters": {
+    "currency": "CNY",
+    "locale": "en_US"
+  },
+  "tasks": [
+    {
+      "name": "product",
+      "type": "name",
+      "count": 100,
+      "parameters": {
+        "category": "product"
+      },
+      "nested_tasks": [
+        {
+          "name": "price",
+          "type": "decimal",
+          "count": 1,
+          "parameters": {
+            "min": 9.99,
+            "max": 999.99,
+            "precision": 2
+          }
+        },
+        {
+          "name": "stock",
+          "type": "integer",
+          "count": 1,
+          "parameters": {
+            "min": 0,
+            "max": 1000
+          }
+        },
+        {
+          "name": "image_url",
+          "type": "url",
+          "count": 1,
+          "parameters": {
+            "protocol": "https",
+            "domain": "example.com",
+            "path": "/images"
+          }
+        },
+        {
+          "name": "file_size",
+          "type": "file_size",
+          "count": 1,
+          "parameters": {
+            "min": 100,
+            "max": 5000,
+            "unit": "KB"
+          }
+        }
+      ]
+    },
+    {
+      "name": "category",
+      "type": "file_extension",
+      "count": 50,
+      "parameters": {
+        "category": "image"
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+# 中国常用邮箱域名
+# Popular Chinese Email Domains
+
+163.com
+qq.com
+sina.com
+126.com
+139.com
+189.cn
+21cn.com
+sohu.com
+yeah.net
+foxmail.com
+tom.com
+china.com
+people.com.cn
+xinhuanet.com
+cctv.com
+baidu.com
+aliyun.com
+126.net
+vip.163.com
+vip.qq.com
+vip.sina.com

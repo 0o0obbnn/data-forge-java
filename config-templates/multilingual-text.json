@@ -1,0 +1,50 @@
+{
+  "name": "多语言文本数据生成",
+  "description": "生成多语言和特殊字符的测试数据，用于国际化测试",
+  "outputFormat": "json",
+  "outputFile": "multilingual_data.json",
+  "prettyPrint": true,
+  "globalParameters": {
+    "encoding": "UTF-8",
+    "include_rtl": true
+  },
+  "tasks": [
+    {
+      "name": "multilingual_names",
+      "type": "multilingual_text",
+      "count": 30,
+      "parameters": {
+        "languages": ["zh", "en", "ja", "ar", "ru"],
+        "text_type": "person_name"
+      }
+    },
+    {
+      "name": "unicode_boundary_chars",
+      "type": "unicode_boundary",
+      "count": 50,
+      "parameters": {
+        "include_emoji": true,
+        "include_symbols": true,
+        "include_combining": true
+      }
+    },
+    {
+      "name": "special_characters",
+      "type": "special_char",
+      "count": 40,
+      "parameters": {
+        "categories": ["punctuation", "symbols", "currency", "mathematical"]
+      }
+    },
+    {
+      "name": "long_text_samples",
+      "type": "longtext",
+      "count": 10,
+      "parameters": {
+        "length": 1000,
+        "language": "mixed",
+        "include_formatting": true
+      }
+    }
+  ]
+}

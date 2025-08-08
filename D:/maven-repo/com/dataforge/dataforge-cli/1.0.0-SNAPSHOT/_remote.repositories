@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Fri Aug 01 00:42:35 CST 2025
+dataforge-cli-1.0.0-SNAPSHOT.jar>=
+dataforge-cli-1.0.0-SNAPSHOT.pom>=

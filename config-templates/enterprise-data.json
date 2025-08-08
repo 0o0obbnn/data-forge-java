@@ -1,0 +1,44 @@
+{
+  "name": "企业数据生成模板",
+  "description": "生成企业相关的测试数据，包括公司信息、统一社会信用代码等",
+  "outputFormat": "csv",
+  "outputFile": "companies.csv",
+  "prettyPrint": true,
+  "globalParameters": {
+    "locale": "zh_CN",
+    "region": "北京市"
+  },
+  "tasks": [
+    {
+      "name": "company_name",
+      "type": "company",
+      "count": 50,
+      "parameters": {
+        "type": "technology"
+      },
+      "nestedTasks": [
+        {
+          "name": "uscc",
+          "type": "uscc",
+          "count": 1
+        },
+        {
+          "name": "contact_phone",
+          "type": "phone",
+          "count": 1,
+          "parameters": {
+            "type": "landline"
+          }
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "count": 1,
+          "parameters": {
+            "domain": "company"
+          }
+        }
+      ]
+    }
+  ]
+}

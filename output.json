@@ -1,0 +1,23 @@
+[
+  {
+    "name": "陈静",
+    "idcard": "620100198907251877",
+    "bankcard": "346757731609614",
+    "currency": "JPY",
+    "decimal": "-449.33"
+  },
+  {
+    "name": "Mary Rodriguez",
+    "idcard": "530100199005284293",
+    "bankcard": "5084705916952080",
+    "currency": "MXN",
+    "decimal": "-528.45"
+  },
+  {
+    "name": "陈丽",
+    "idcard": "340100199309289805",
+    "bankcard": "5430959382430102",
+    "currency": "SEK",
+    "decimal": "-268.68"
+  }
+]
